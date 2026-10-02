@@ -9,7 +9,10 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-    public function create(Request $request){
+    public function index(){
+        return response()->json(User::get());
+    }
+    public function store(Request $request){
         try {
             $data = Validator::make($request->all(),[
                 'name' => 'required|string',
